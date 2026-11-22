@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163c35">
+  <title>Mietbewerber-Sortierer</title>
+  <meta name="description" content="Mietanfragen strukturiert sichten und nachvollziehbar bearbeiten.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Startseite">
+        <span class="brand-mark">M</span>
+        <span><strong>MietSort</strong><small>Arbeitsname</small></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Übersicht</button>
+        <button class="nav-item" data-view="applications"><span>☷</span> Bewerbungen <em id="navCount">0</em></button>
+        <button class="nav-item" data-view="form"><span>↗</span> Bewerbungsformular</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="note-icon">✓</span>
+        <p><strong>Nachvollziehbare Auswahl</strong><br>Keine automatische Zu- oder Absage. Du entscheidest.</p>
+      </div>
+
+      <div class="profile">
+        <span class="avatar">EK</span>
+        <span><strong>Eric Kriedemann</strong><small>Vermieter · Demo</small></span>
+        <button aria-label="Profilmenü">•••</button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="mobile-menu" aria-label="Menü öffnen">☰</button>
+        <div>
+          <span class="eyebrow">Aktives Objekt</span>
+          <button class="property-switcher">Sonnenallee 142, Berlin <span>⌄</span></button>
+        </div>
+        <div class="top-actions">
+          <button class="button ghost" id="copyLinkBtn">Bewerbungslink kopieren</button>
+          <button class="icon-button" aria-label="Benachrichtigungen">♢<span></span></button>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view active">
+        <div class="page-heading">
+          <div><span class="eyebrow">Mittwoch, 11. November</span><h1>Guten Tag, Eric.</h1><p>Hier siehst du, was bei deiner Vermietung gerade wichtig ist.</p></div>
+          <button class="button primary" data-go="form">+ Testbewerbung anlegen</button>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-icon teal">☷</div><div><span>Bewerbungen</span><strong id="statTotal">0</strong><small><b id="statNew">0 neu</b> seit gestern</small></div></article>
+          <article class="stat-card"><div class="stat-icon amber">☆</div><div><span>Vorgemerkt</span><strong id="statShortlist">0</strong><small>für die nähere Prüfung</small></div></article>
+          <article class="stat-card"><div class="stat-icon blue">✓</div><div><span>Vollständig</span><strong id="statComplete">0</strong><small id="completeRate">0 % aller Anfragen</small></div></article>
+          <article class="stat-card"><div class="stat-icon coral">◷</div><div><span>Offene Prüfung</span><strong id="statOpen">0</strong><small>noch nicht bearbeitet</small></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel activity-panel">
+            <div class="panel-head"><div><span class="eyebrow">Eingang</span><h2>Neue Bewerbungen</h2></div><button class="text-button" data-go="applications">Alle ansehen →</button></div>
+            <div id="recentApplications" class="recent-list"></div>
+          </article>
+
+          <aside class="panel property-panel">
+            <div class="property-image"><span>Aktive Vermietung</span></div>
+            <div class="property-content">
+              <span class="eyebrow">2-Zimmer-Wohnung</span>
+              <h2>Sonnenallee 142</h2>
+              <p>12059 Berlin-Neukölln</p>
+              <div class="property-facts"><span><b>58 m²</b> Wohnfläche</span><span><b>1.150 €</b> warm</span><span><b>01.01.27</b> Einzug</span></div>
+              <div class="progress-label"><span>Bewerbungsphase</span><b>noch 8 Tage</b></div>
+              <div class="progress"><i></i></div>
+              <button class="button dark full" data-go="form">Formular ansehen</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="applicationsView" class="view">
+        <div class="page-heading compact">
+          <div><span class="eyebrow">Sonnenallee 142</span><h1>Bewerbungen</h1><p>Sortiere nach sachlichen Angaben. Die Entscheidung bleibt immer bei dir.</p></div>
+          <button class="button primary" data-go="form">+ Bewerbung hinzufügen</button>
+        </div>
+
+        <div class="toolbar panel">
+          <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Name oder Nachricht suchen"></label>
+          <div class="filter-chips" id="filterChips">
+            <button class="chip active" data-filter="all">Alle <span id="allCount"></span></button>
+            <button class="chip" data-filter="new">Neu</button>
+            <button class="chip" data-filter="shortlist">Vorgemerkt</button>
+            <button class="chip" data-filter="incomplete">Unvollständig</button>
+          </div>
+          <label class="sort-select">Sortierung <select id="sortSelect"><option value="newest">Neueste zuerst</option><option value="complete">Vollständigkeit</option><option value="name">Name A–Z</option></select></label>
+        </div>
+
+        <div class="application-layout">
+          <div>
+            <div class="list-heading"><p><strong id="resultCount">0 Bewerbungen</strong><span>Keine automatische Rangliste</span></p><div class="legend"><span><i class="fit"></i> Angaben passen</span><span><i class="check"></i> prüfen</span><span><i class="missing"></i> fehlt</span></div></div>
+            <div id="applicationList" class="application-list"></div>
+          </div>
+          <aside id="detailPanel" class="detail-panel panel"><div class="empty-detail"><span>☷</span><h3>Bewerbung auswählen</h3><p>Klicke links auf einen Eintrag, um Angaben und Hinweise zu prüfen.</p></div></aside>
+        </div>
+      </section>
+
+      <section id="formView" class="view form-page">
+        <div class="form-preview-head">
+          <button class="back-button" data-go="dashboard">← Zurück zum Dashboard</button>
+          <span>Vorschau des öffentlichen Bewerbungslinks</span>
+        </div>
+        <div class="public-form-wrap">
+          <div class="form-intro">
+            <span class="form-logo">M</span>
+            <span class="eyebrow">Mietinteresse</span>
+            <h1>2 Zimmer in<br>Berlin-Neukölln</h1>
+            <p>Schön, dass du dich für die Wohnung interessierst. Mit diesen Angaben kann der Vermieter Anfragen strukturiert prüfen.</p>
+            <div class="mini-property"><div></div><span><b>Sonnenallee 142</b><small>58 m² · 1.150 € warm · ab 01.01.2027</small></span></div>
+            <p class="privacy-note">Deine Angaben werden nur für diese Vermietung verwendet. Es erfolgt keine automatische Zu- oder Absage.</p>
+          </div>
+          <form id="applicationForm" class="application-form">
+            <div class="form-step"><span>01</span><div><strong>Deine Angaben</strong><small>Pflichtfelder sind mit * markiert</small></div></div>
+            <div class="field-grid">
+              <label>Vor- und Nachname *<input name="name" required placeholder="z. B. Anna Weber"></label>
+              <label>E-Mail-Adresse *<input name="email" type="email" required placeholder="anna@beispiel.de"></label>
+              <label>Anzahl einziehender Personen *<input name="people" type="number" min="1" max="10" value="1" required></label>
+              <label>Gewünschter Einzug *<input name="moveIn" type="date" value="2027-01-01" required></label>
+              <label>Haushaltsnettoeinkommen (monatlich)<select name="income"><option value="">Keine Angabe</option><option>2.500–3.499 €</option><option>3.500–4.499 €</option><option>4.500–5.499 €</option><option>ab 5.500 €</option></select></label>
+              <label>Haustiere<select name="pets"><option>Keine</option><option>Kleintiere</option><option>Katze</option><option>Hund</option><option>Andere</option></select></label>
+            </div>
+            <label>Kurze Nachricht<textarea name="message" rows="4" placeholder="Was möchtest du dem Vermieter mitteilen?"></textarea></label>
+            <label class="consent"><input name="consent" type="checkbox" required><span>Ich stimme der Verarbeitung meiner Angaben für dieses Bewerbungsverfahren zu. *</span></label>
+            <button class="button primary full" type="submit">Bewerbung absenden →</button>
+            <p class="form-footnote">Demo: Die Bewerbung wird nur in deinem Browser gespeichert.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

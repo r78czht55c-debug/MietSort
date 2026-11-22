@@ -1,0 +1,191 @@
+MIETSORT – VISION DER APP
+Stand: 22.11.2026
+Arbeitsname: MietSort
+
+
+1. DIE VISION
+
+MietSort soll Vermietern und kleinen Hausverwaltungen helfen, eine große Zahl
+eingehender Mietanfragen schnell, fair und nachvollziehbar zu strukturieren.
+
+Die App entscheidet nicht automatisch, welcher Mensch eine Wohnung bekommt.
+Sie nimmt dem Vermieter die unübersichtliche Vorarbeit ab: Informationen
+einsammeln, fehlende Angaben erkennen, sachliche Kriterien vergleichen,
+interessante Bewerbungen vormerken und den Bearbeitungsstand dokumentieren.
+
+Der Mensch trifft weiterhin die endgültige Entscheidung.
+
+
+2. DAS PROBLEM
+
+Auf Plattformen wie Kleinanzeigen können auf eine attraktive Wohnung innerhalb
+kurzer Zeit Hunderte oder sogar mehr als 1.000 Nachrichten eingehen.
+
+Für Vermieter entstehen dabei mehrere Probleme:
+
+- Informationen stehen unstrukturiert in freien Nachrichten.
+- Wichtige Angaben fehlen oder müssen mehrfach nachgefragt werden.
+- Gute Bewerbungen gehen in der Masse unter.
+- Der Bearbeitungsstand ist nicht transparent.
+- Antworten und Absagen kosten viel Zeit.
+- Eine rein intuitive Auswahl kann inkonsistent und schwer nachvollziehbar sein.
+
+
+3. DIE LÖSUNG
+
+Der Vermieter legt eine Wohnung an und erhält einen Bewerbungslink.
+Interessenten tragen ihre Angaben über ein übersichtliches Formular ein.
+
+MietSort zeigt die Bewerbungen anschließend strukturiert in einem Dashboard:
+
+- Anzahl einziehender Personen
+- gewünschter Einzugstermin
+- Einkommensangabe beziehungsweise Einkommensbereich
+- Haustiere
+- persönliche Nachricht
+- Vollständigkeit der Angaben
+- Bearbeitungsstatus
+- sachliche, verständliche Hinweise
+
+Der Vermieter kann Bewerbungen suchen, filtern, sortieren, öffnen, vormerken
+und als geprüft markieren.
+
+
+4. ZIELGRUPPE
+
+Die erste Zielgruppe sind:
+
+- private Vermieter mit vielen Anfragen
+- Vermieter mit mehreren Wohnungen
+- kleine Hausverwaltungen
+- kleinere Immobilienunternehmen ohne umfangreiches Bewerbermanagement-System
+
+Die App soll besonders für Menschen attraktiv sein, denen große
+Immobiliensoftware zu teuer, zu kompliziert oder für einzelne Vermietungen
+überdimensioniert ist.
+
+
+5. PRODUKTPRINZIPIEN
+
+Einfach:
+Die App muss ohne Schulung verständlich sein.
+
+Nachvollziehbar:
+Es gibt keine geheimnisvolle KI-Punktzahl und keine undurchsichtige Rangliste.
+Jeder Hinweis soll verständlich begründet sein.
+
+Menschliche Entscheidung:
+MietSort spricht nicht eigenständig zu oder ab. Der Vermieter entscheidet.
+
+Datensparsam:
+Es werden nur Angaben erhoben, die für den jeweiligen Vermietungsschritt
+notwendig sind. Sensible Nachweise sollen erst später angefordert werden.
+
+Fair:
+Geschützte persönliche Merkmale sollen weder ausgewertet noch zur Sortierung
+verwendet werden.
+
+Zeitsparend:
+Jede Funktion muss einen realen Arbeitsschritt vereinfachen und darf die App
+nicht unnötig aufblähen.
+
+
+6. AKTUELLER PROTOTYP
+
+Der derzeitige Stand ist ein funktionierender Frontend-Prototyp aus HTML, CSS
+und JavaScript.
+
+Bereits umgesetzt:
+
+- Vermieter-Dashboard
+- Beispielwohnung
+- Kennzahlen zu Bewerbungen
+- Bewerberübersicht
+- Suche
+- Filter
+- Sortierung
+- Detailansicht
+- Vormerkliste
+- Status „als geprüft markieren“
+- öffentliches Bewerbungsformular
+- Speicherung von Testbewerbungen im Browser
+- responsive Darstellung für Computer und Smartphone
+
+Noch nicht umgesetzt:
+
+- echte Benutzerkonten
+- zentrale Datenbank
+- getrennte Zugänge für Vermieter und Bewerber
+- dauerhafte Speicherung über mehrere Geräte
+- E-Mail-Versand
+- Antwortvorlagen mit echtem Versand
+- mehrere Wohnungen pro Vermieter
+- Terminverwaltung für Besichtigungen
+- sichere Dokumentenanforderung
+- Zahlungsfunktion
+- offizielle Schnittstelle zu Kleinanzeigen
+
+
+7. DAS ERSTE VERKAUFBARE PRODUKT
+
+Die erste verkaufbare Version soll bewusst klein bleiben und folgenden
+vollständigen Ablauf ermöglichen:
+
+1. Vermieter registriert sich.
+2. Vermieter legt eine Wohnung und sachliche Kriterien an.
+3. Die App erzeugt einen Bewerbungslink.
+4. Interessenten füllen das Formular aus.
+5. Bewerbungen erscheinen dauerhaft im Vermieter-Dashboard.
+6. Der Vermieter filtert und prüft die Angaben.
+7. Er merkt Personen vor oder setzt einen Bearbeitungsstatus.
+8. Er lädt ausgewählte Personen zu einer Besichtigung ein.
+9. Nicht mehr benötigte Daten werden nach einer festgelegten Frist gelöscht.
+
+
+8. MÖGLICHES GESCHÄFTSMODELL
+
+Für private Vermieter bietet sich zunächst eine Zahlung pro Vermietung an,
+beispielsweise für einen zeitlich begrenzten Bewerbungsraum.
+
+Später sind monatliche Pakete für kleine Hausverwaltungen denkbar:
+
+- mehrere aktive Wohnungen
+- mehrere Teammitglieder
+- wiederverwendbare Formulare
+- Antwortvorlagen
+- Besichtigungstermine
+- Export und Dokumentation
+
+Die endgültigen Preise sollen erst nach Gesprächen und Tests mit echten
+Vermietern festgelegt werden.
+
+
+9. LANGFRISTIGE VISION
+
+Langfristig kann MietSort zu einem schlanken Vermietungsassistenten werden,
+der den gesamten Prozess zwischen Inserat und Mietvertragsvorbereitung
+übersichtlich begleitet.
+
+Mögliche spätere Funktionen:
+
+- offizielle Anbindungen an Immobilienplattformen
+- automatische Erkennung eingehender Angaben
+- Zusammenfassung langer Freitexte
+- Erkennung fehlender Informationen
+- koordinierte Besichtigungstermine
+- sichere, zeitlich begrenzte Dokumentenräume
+- Vorlagen für Kommunikation
+- Teamfunktionen für Hausverwaltungen
+- statistische Prozessauswertung
+
+KI soll dabei Informationen strukturieren und Arbeit erleichtern, aber keine
+Menschen anhand persönlicher Eigenschaften bewerten oder eigenständig über
+Wohnraum entscheiden.
+
+
+10. ERFOLGSKRITERIUM
+
+Die App ist erfolgreich, wenn ein Vermieter aus Hunderten unübersichtlichen
+Nachrichten in kurzer Zeit einen geordneten, nachvollziehbaren Arbeitsprozess
+machen kann – ohne dabei die Kontrolle über die Entscheidung abzugeben.
+

@@ -1,0 +1,21 @@
+# Betriebssystem und Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Lokale Zugangsdaten
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Abhängigkeiten und temporäre Dateien
+node_modules/
+.venv/
+__pycache__/
+*.log
+coverage/
+
+# dist/ enthält derzeit den gepflegten Frontend-Code und wird versioniert.
