@@ -27,8 +27,25 @@ Schriften werden von Google Fonts und Wohnungsbilder von Unsplash geladen; diese
 - `dist/app.js`: Beispieldaten, Darstellung, Filter und Browserspeicherung
 - `VISION.txt`: Produktvision, Stand 22.11.2026
 - `.openai/hosting.json`: vorhandene Konfiguration für statisches Hosting
+- `supabase/migrations/`: vorbereitete Datenbankstruktur und Zugriffsregeln
+- `tests/database.test.mjs`: automatisierte PostgreSQL-Zugriffstests
+- `docs/DATABASE.md`: Datenmodell, Einrichtung und noch offene Schritte
 
 `dist/` enthält aktuell den direkt gepflegten Code und wird deshalb mit Git versioniert.
+
+## Datenbankvorbereitung und Tests
+
+Für Supabase sind Wohnungen und Bewerbungen als versionierte SQL-Migration vorbereitet. Vermieterkonten werden von Supabase Auth verwaltet. Zugriffsregeln trennen die Vermieter; Prüfstatus und Vormerkung werden unabhängig gespeichert. Die vorhandene Oberfläche verwendet weiterhin ausschließlich lokale Demodaten.
+
+Mit Node.js ab Version 22 lassen sich die Datenbanktests ausführen:
+
+```sh
+npm ci
+npm test
+npm run check
+```
+
+Die Tests verwenden eine lokale, flüchtige PostgreSQL-Engine (PGlite) und benötigen weder Docker noch ein Supabase-Konto. Details und die Grenzen dieser Tests stehen in [docs/DATABASE.md](docs/DATABASE.md).
 
 ## Nächster Entwicklungsschritt
 
@@ -40,8 +57,8 @@ Die erste Version soll einen vollständigen Ablauf über einen eigenständigen B
 4. Der Vermieter prüft, merkt vor und verwaltet den Bearbeitungsstatus.
 5. Nicht mehr benötigte Bewerbungen können gelöscht werden.
 
-Hierfür fehlen insbesondere Anmeldung, Datenbank, serverseitige Validierung und Zugriffskontrollen. Vormerkung und Prüfstatus sollen getrennt gespeichert werden. E-Mail-Versand und Besichtigungseinladungen folgen später. Eine Kleinanzeigen-Anbindung ist eine spätere Erweiterung und derzeit nicht implementiert.
+Hierfür fehlen insbesondere die echte Anmeldung in der App, ein eingerichtetes Supabase-Projekt, die Anbindung der vorbereiteten Datenbank und ein serverseitig validierter Bewerbungsendpunkt. E-Mail-Versand und Besichtigungseinladungen folgen später. Eine Kleinanzeigen-Anbindung ist eine spätere Erweiterung und derzeit nicht implementiert.
 
 ## Bekannte Grenzen
 
-Wohnung, Prüfkriterien und einige Datumsanzeigen sind fest hinterlegt. Die Vollständigkeit wird derzeit allein anhand einer Einkommensangabe bestimmt. Antwortvorbereitung, Objektwechsel, Profil und Benachrichtigungen sind Platzhalter. Automatisierte Tests und ein Build-System sind noch nicht vorhanden.
+Wohnung, Prüfkriterien und einige Datumsanzeigen sind fest hinterlegt. Die Vollständigkeit wird derzeit allein anhand einer Einkommensangabe bestimmt. Antwortvorbereitung, Objektwechsel, Profil und Benachrichtigungen sind Platzhalter. Für die Oberfläche gibt es noch keine automatisierten Tests und kein Build-System.
