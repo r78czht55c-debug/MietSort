@@ -650,7 +650,9 @@ main { min-width: 0; }
 .process-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
 .process-column { background: #f6f9f7; border: 1px solid var(--line); border-radius: 11px; padding: 12px; min-height: 210px; }
 .process-column-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; border-bottom: 1px solid var(--line); padding-bottom: 9px; }
-.process-column-head b { font-size: 0.84rem; }
+.process-column-head > div { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.process-column-head b { display: block; font-size: 0.9rem; line-height: 1.25; }
+.process-column-head small { display: block; color: var(--muted); font-size: 0.76rem; line-height: 1.35; }
 .process-column-head span { background: var(--white); border: 1px solid var(--line); border-radius: 50%; width: 25px; height: 25px; display: grid; place-items: center; font-size: 0.75rem; }
 .process-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin-top: 9px; cursor: pointer; }
 .process-card strong { display: block; font-size: 0.8rem; }
